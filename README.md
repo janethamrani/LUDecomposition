@@ -12,7 +12,7 @@ This algorithm works by computing the partial factorization of a matrix by evalu
 
 The code first creates an empty lower and upper matrix, lower being an identity matrix. Next, a loop that starts with index <i>k = 0</i> to the matrix length is declared;<i> k</i> represents the blocksize of the active submatrix. 
 In this loop are three nested loops. The first loop starts with index<i> i = k</i> through the matrix length and sets the upper matrix row equal to its corresponding element in <i>A</i>. It creates the upper triangular matrix as <i>i</i> is initally set to <i>k</i>. In the first outer loop iteration, when<i> k = 0</i>, it will set the entire first row of the upper matrix. 
-In the next loop, the index <i>i</i> is set to <i>k+1</i> through the matrix length (<i>k+1</i> to avoid overlapping). This loop sets the block column of the lower matrix to its corresponding value in the <i>A</i> matrix divided by the pivot element, which is the top left element in the active submatrix.
+In the next loop, the index <i>i</i> is set to <i>k+1</i> through the matrix length (<i>k+1</i> to avoid overlapping). This loop sets the block column of the lower matrix to its corresponding value in the <i>A</i> matrix divided by the pivot element (so that the product of the upper and lower matrices can equal <i>A</i>), which is the top left element in the active submatrix.
 The last loop is a nested for-loop that updates submatrix for the upcoming iteration using the current block row and column
 
 ```sh
