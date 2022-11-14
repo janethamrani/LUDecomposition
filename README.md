@@ -16,7 +16,7 @@ In the next loop, the index <i>i</i> is set to <i>k+1</i> through the matrix len
 The last loop is a nested for-loop that updates submatrix for the upcoming iteration using the current block row and column
 
 ```sh
-for(int k = 0; k<n; k++){ // U(k,k:n) = A(k,k:n)
+for(int k = 0; k<n; k++){ 
         for(int i = k; i < n; i++){
             upper[k][i] = mat[k][i];
         }
