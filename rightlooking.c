@@ -10,7 +10,6 @@ for (int row = 0; row < n; row++)
     {
         for (int col = 0; col < n; col++)
         {
-            // Checking if row is equal to column
             if (row == col)
                 lower[row][col] = 1;
             else
@@ -26,7 +25,7 @@ for (int row = 0; row < n; row++)
         }
  
     
-   for(int k = 0; k<n; k++){ // U(k,k:n) = A(k,k:n)
+   for(int k = 0; k<n; k++){ 
         for(int i = k; i < n; i++){
             upper[k][i] = mat[k][i];
         }
