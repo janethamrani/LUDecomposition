@@ -30,3 +30,23 @@ for(int k = 0; k<n; k++){
         }   
     }
 ```
+Loop through CSC
+```sh
+int col = 0;
+_Bool zero = 1;
+      for(int k = 0; k<3; k++){ //getting elements from row i
+          for (idx_t i=0; i< n; i++){ 
+            for (idx_t j=begin_pos[i]; j< begin_pos[i+1]; j++)
+            {
+              if(csr[j] == k){
+                    zero = 0;
+                    upper[k][col] = nzval[j];
+                    printf("%d ", upper[k][col]);
+                    col++; if (col == 2) col = 0;
+                }
+              }
+              if(zero == 1) printf("%d ", 0); 
+              zero = 1;
+            }
+          }
+```
