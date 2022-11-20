@@ -30,7 +30,7 @@ for(int k = 0; k<n; k++){
         }   
     }
 ```
-Loop through CSC
+Print matrix from CSC Format
 ```sh
 int col = 0;
 _Bool zero = 1;
