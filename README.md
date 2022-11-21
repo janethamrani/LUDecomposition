@@ -31,9 +31,25 @@ for(int k = 0; k<n; k++){
     }
 ```
 
-### CSR - Compressed Row Format
+## CSR - Compressed Sparse Row Format
 
 ![image](https://user-images.githubusercontent.com/26263012/203053484-ab0e3165-5480-4360-a494-500bfb734157.png)
+
+<img width="350" alt="image" src="https://user-images.githubusercontent.com/26263012/203054148-e599fc6e-654f-49a8-98b9-0ee0942f05b1.png">
+
+```sh
+for (idx_t i=0; i< n; i++)
+   {
+     printf("\nNeighbor of vertex %d  begin_pos[%d]:%d  begin_pos[%d]:%d\t",i,i,begin_pos[i],i+1,begin_pos[i+1]);
+     for (idx_t j=begin_pos[i]; j< begin_pos[i+1]; j++)
+     {
+       printf("%d %lf\t",csr[j],nzval[j]);
+     }
+   }
+ ```
+ 
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/26263012/203054070-716e7f96-b3d2-44d4-945a-08dcd5984573.png">
+
 
 Print matrix from CSC Format
 ```sh
