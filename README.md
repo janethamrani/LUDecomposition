@@ -30,6 +30,11 @@ for(int k = 0; k<n; k++){
         }   
     }
 ```
+
+### CSR - Compressed Row Format
+
+![image](https://user-images.githubusercontent.com/26263012/203053484-ab0e3165-5480-4360-a494-500bfb734157.png)
+
 Print matrix from CSC Format
 ```sh
 int col = 0;
