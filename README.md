@@ -73,3 +73,51 @@ _Bool zero = 1;
 ```
 
 ## Block Format
+
+```sh
+//Category 1
+  printf("\nCategory 1\n");
+  for(int i = 0; i<nb; i++){
+    for(int k = 0; k<nb; k++){
+      printf("%f ", mat[i][k]);
+    }
+    printf("\n");
+  }
+  printf("\nCategory 2 \n");
+  int block = 1;
+  for(int row = nb; row< n; row++){
+    for(int col = 0; col < nb; col++){
+      printf("%f ", mat[row][col]);
+    }
+    printf("\n");
+    block++;
+    if(block == nb+1){
+      block = 1;
+      printf("\n");
+    }
+  }
+
+  printf("\nCategory 3\n");
+  for(int col = nb; col < n; col+=nb){
+    for(int row = 0; row<nb; row++){
+      for(int col1 = col; col1<col+nb; col1++){
+        printf("%f ", mat[row][col1]);
+      }
+      printf("\n");
+    }
+    printf("\n");
+  }
+  printf("\nCategory 4 \n");
+  for(int outer_row = nb; outer_row<n; outer_row+=nb){
+    for(int outer_col = nb; outer_col<n; outer_col+=nb){
+      for(int row = outer_row; row<outer_row+nb; row++){
+        for(int col = outer_col; col<outer_col+nb; col++){
+          printf("%f ", mat[row][col]);
+        }
+        printf("\n");
+      }
+      printf("\n\n");
+    }
+  }
+```
+
