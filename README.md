@@ -73,10 +73,10 @@ _Bool zero = 1;
 ```
 
 ## Block Format
+<img width="364" alt="image" src="https://user-images.githubusercontent.com/26263012/203840336-27a3a69f-4df4-451d-b2cd-b6d551c996ff.png">
 
 Print blocks from each category
 ```sh
-//Category 1
   printf("\nCategory 1\n");
   for(int i = 0; i<nb; i++){
     for(int k = 0; k<nb; k++){
