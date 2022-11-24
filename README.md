@@ -74,6 +74,7 @@ _Bool zero = 1;
 
 ## Block Format
 
+Print blocks from each category
 ```sh
 //Category 1
   printf("\nCategory 1\n");
