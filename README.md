@@ -121,4 +121,55 @@ Print blocks from each category
     }
   }
 ```
+Block LU Decomposition 
 
+```sh 
+for(int num = 0; num<(n/nb); num++){
+  //Category 1
+  for(int k = 0+(nb*num); k<nb+(nb*num); k++){
+    for(int i = 0+(nb*num); i<nb+(nb*num); i++){
+      upper[k][i] = mat[k][i];
+    }
+    for(int i = k+1; i<n; i++){
+        lower[i][k] = mat[i][k]/upper[k][k];
+    }
+    for(int j = k+1; j<n; j++){
+      for(int i = k+1; i<n; i++){
+          mat[i][j] -= (lower[i][k]*upper[k][j]);
+        }
+    } 
+  //Category 2
+  for(int block = 1; block < n/nb; block++){
+    for(int k = 1+(nb*num); k<nb+(num*nb); k++){
+      for(int i = nb+1+(nb*num); i<block*nb*2+(nb*num); i++){
+        mat[i][k]/=mat[k][k];
+      }
+      for(int j = k+1; j<nb; j++){
+        for(int i = block*nb+(nb*num); i<block*nb*2+(nb*num); i++){
+          mat[i][j]-= (mat[i][k]*mat[k][j]);
+        }
+      }
+    }
+  }
+//Category 3
+ for(int block = 1; block<n/nb; block++){
+    for(int k = 1+(nb*num); k<nb+(nb*num); k++){
+       for(int j =nb+1+(nb*num); j<block*nb*2+(nb*num); j++){
+          for(int i = k+1; i<nb; i++){
+             mat[i][j] -= (mat[i][k]*mat[k][j]);
+          }
+       }
+    }
+  }
+//Category 4  
+  for(int block = 1; block<n/nb; block++){
+     for(int k = 1+(nb*num); k<nb+(nb*num); k++){
+        for(int j =nb+1+(nb*num); j<block*nb*2+(nb*num); j++){
+           for(int i = k+1; i<nb; i++){
+             mat[i][j] -= (mat[i][k]*mat[k][j]);
+           }
+        }
+     }
+  }
+}
+```
