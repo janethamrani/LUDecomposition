@@ -124,7 +124,7 @@ Print blocks from each category
 ## Block LU Decomposition Implementation
 
 ### Pseudocode
-<img width="100%" alt="image" src="https://user-images.githubusercontent.com/26263012/204322463-1ef44e36-8003-4385-afac-cf6f9c3af112.png">
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/26263012/204322770-e2cfe6ea-d7bd-47c6-b077-44b2b89e5640.png">
 
 ### My Implementation
 ```sh 
