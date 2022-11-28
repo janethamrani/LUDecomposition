@@ -124,9 +124,9 @@ Print blocks from each category
 ## Block LU Decomposition Implementation
 
 ### Pseudocode
-<img width="242" alt="image" src="https://user-images.githubusercontent.com/26263012/204322463-1ef44e36-8003-4385-afac-cf6f9c3af112.png">
+<img width="100%" alt="image" src="https://user-images.githubusercontent.com/26263012/204322463-1ef44e36-8003-4385-afac-cf6f9c3af112.png">
 
-### My work
+### My Implementation
 ```sh 
 for(int num = 0; num<(n/nb); num++){
   //Category 1
