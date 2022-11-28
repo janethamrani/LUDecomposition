@@ -166,14 +166,16 @@ for(int num = 0; num<(n/nb); num++){
     }
   }
 //Category 4  
-  for(int block = 1; block<n/nb; block++){
-     for(int k = 1+(nb*num); k<nb+(nb*num); k++){
-        for(int j =nb+1+(nb*num); j<block*nb*2+(nb*num); j++){
-           for(int i = k+1; i<nb; i++){
-             mat[i][j] -= (mat[i][k]*mat[k][j]);
+  for(int blockcol = 1; blockcol<((n-(nb*num))/nb); blockcol++){
+     for(int blockrow = 1; blockrow<((n-(nb*num))/nb); blockrow++){
+       for(int k = 1+(nb*num); k<nb+(nb*num); k++){
+         for(int j = 1+(nb*blockcol)+(nb*num); j<nb*2*block+(nb*num); j++){
+           for(int i = 1+(nb*blockrow)+(nb*num); i<nb*2*block+(nb*num); i++){
+             mat[i][j] -= mat[i][k]*mat[k][j];
            }
-        }
+         }
+       }
      }
-  }
+   }
 }
 ```
