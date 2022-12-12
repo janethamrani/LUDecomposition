@@ -183,6 +183,49 @@ for(int num = 0; num<(n/nb); num++){
 ### Struct Implementation
 <img width="50%" alt="image" src="https://user-images.githubusercontent.com/26263012/207111020-b6986dab-5fba-471f-8fb0-c7785fb068c1.png">
 
+#### Block Creation
+```sh 
+printf("How many blocks are there?");
+  scanf("%d", &nb);
+  printf("%d", nb);
+
+  struct total_blocks {
+      int sb_row;
+      int sb_col;
+      double* nz;
+  };
+  int row_index = 0;
+  int col_index = 0;
+  printf("total_blocks is %I64d bytes long ", sizeof(struct total_blocks));
+  struct total_blocks* block;
+  block =  (struct total_blocks*)malloc(nb * sizeof(struct total_blocks));
+  printf("block size: %d", sizeof(block));
+    for(int i = 0; i<nb; i++){
+        // printf("%d ", i);
+        block[i].sb_row = sqrt((n*n)/nb);
+        block[i].sb_col = sqrt((n*n)/nb);
+        printf("size: %d", block[i].sb_col);
+        //block[i] =  (double*)malloc(block[i].sb_row*block[i].sb_col * sizeof(double));
+        block[i].nz =  (double*)malloc(block[i].sb_row*block[i].sb_col * sizeof(double));
+            if(col_index == n){
+                col_index = 0;
+                row_index += block[i].sb_row;
+            }
+        for(int inner_row = 0; inner_row<block[i].sb_row; inner_row++){
+            for(int inner_col = 0; inner_col<block[i].sb_col; inner_col++){
+                block[i].nz[inner_row*block[i].sb_col+inner_col] = mat[row_index+inner_row][col_index+inner_col];
+                //printf("%f ", block[i].nz[inner_row*block[i].sb_col+inner_col]);
+            }
+        }
+        col_index+=block[i].sb_row;
+        printf("\nNZ for this block %d:", i);
+        for(int j = 0; j<block[i].sb_row*block[i].sb_col; j++){
+            //printf("%f ", block[i].nz[j]);
+        }
+        //printf("\n\n");
+    }
+ ```   
+
 ```sh 
 int total_row = (n*n/nb);
 int s_index = 0; 
