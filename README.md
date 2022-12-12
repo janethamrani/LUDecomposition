@@ -179,3 +179,67 @@ for(int num = 0; num<(n/nb); num++){
    }
 }
 ```
+
+### Struct Implementation
+<img width="50%" alt="image" src="https://user-images.githubusercontent.com/26263012/207111020-b6986dab-5fba-471f-8fb0-c7785fb068c1.png">
+```sh 
+int total_row = (n*n/nb);
+int s_index = 0; 
+for(int s_index = 0; s_index<nb-1; s_index+=total_row+1){
+    int iteration = 0;
+    //Category 1 -- STRUCT
+    for(int k = 0; k< block[s_index].sb_row; k++){
+        for(int i = k; i<block[s_index].sb_row; i++){
+            upper[k][i] = block[s_index].nz[k*block[s_index].sb_row+i];
+        }
+        for(int i = k+1; i<block[s_index].sb_row; i++){
+            lower[i][k] = (block[s_index].nz[i*block[s_index].sb_row+k])/upper[k][k];
+        }
+        for(int j = k+1; j<block[s_index].sb_row; j++){
+            for(int i = k+1; i<block[s_index].sb_row; i++){
+            block[s_index].nz[i*block[s_index].sb_row+j] -= (lower[i][k]*upper[k][j]);
+            }
+        }
+    }
+    //Category 2 -- STRUCT
+    printf("\n\n");
+    for(int block_index = s_index+total_row; block_index<nb; block_index+=(total_row)){
+        for(int k = 0; k<(block[block_index].sb_row*block[block_index].sb_col); k++){
+            for(int i = 0; i<(block[block_index].sb_row*block[block_index].sb_col); i++){
+                block[block_index].nz[i*block[block_inde    x].sb_col+k]/=block[s_index].nz[k*block[block_index].sb_col+k]; mat[i][k]/=mat[k][k];
+            }
+            for(int j = k+1; j<(block[block_index].sb_row*block[block_index].sb_col);j++){
+                for(int i = k+1; i <(block[block_index].sb_row*block[block_index].sb_col);i++){
+                    block[block_index].nz[i*block[block_index].sb_col+j]-= ((block[block_index].nz[i*block[block_index].sb_col+k])*block[s_index].nz[k*block[block_index].sb_col+j]); //mat[i][j]-= (mat[i][k]*mat[k][j]);
+                }
+            } 
+            
+        }
+        printf("\n\n");
+    }
+    //Category 3 -- STRUCT
+    for(int block_index = s_index+1; block_index<(total_row*(iteration+1); block_index++){
+        for(int k = 1; k<block[block_index].sb_row; k++){
+            for(int j = 1; j<block[block_index].sb_row; j++){
+                for(int i = k+1;j<block[block_index].sb_row; j++){
+                    block[block_index].nz[i*block[block_index].sb_col+j]= ((block[block_index].nz[k*block[block_index].sb_col+j])*block[s_index].nz[i*block[block_index].sb_col+k]);
+                }
+            }
+        }
+    }
+
+    //Category 4 -- STRUCT
+    for(int block_index = s_index+total_row+1; block_index<nb; block_index++){
+        if((block_index%total_row) == 0+iteration) block_index++;
+            for(int k = 1; k< block[block_index].sb_col; k++){
+                for(int j = 1; j< block[block_index].sb_col; j++){
+                    for(int i = 1; i< block[block_index].sb_col; i++){
+                        block[block_index].nz[i*block[block_index].sb_col+j]-=block[block_index-(block_index%total_row)+iteration].nz[i*block[i].sb_row+j]*block[(block_index%total_row)+(iteration*total_row)].nz[k*block[i].sb_row+j];
+                    }
+
+                }
+            }
+    }
+    iteration+=1;
+}
+```
