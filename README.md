@@ -182,6 +182,7 @@ for(int num = 0; num<(n/nb); num++){
 
 ### Struct Implementation
 <img width="50%" alt="image" src="https://user-images.githubusercontent.com/26263012/207111020-b6986dab-5fba-471f-8fb0-c7785fb068c1.png">
+
 ```sh 
 int total_row = (n*n/nb);
 int s_index = 0; 
@@ -215,14 +216,13 @@ for(int s_index = 0; s_index<nb-1; s_index+=total_row+1){
             } 
             
         }
-        printf("\n\n");
     }
-    //Category 3 -- STRUCT
+  //Category 3 -- STRUCT
     for(int block_index = s_index+1; block_index<(total_row*(iteration+1); block_index++){
         for(int k = 1; k<block[block_index].sb_row; k++){
             for(int j = 1; j<block[block_index].sb_row; j++){
                 for(int i = k+1;j<block[block_index].sb_row; j++){
-                    block[block_index].nz[i*block[block_index].sb_col+j]= ((block[block_index].nz[k*block[block_index].sb_col+j])*block[s_index].nz[i*block[block_index].sb_col+k]);
+                    block[block_index].nz[i*block[block_index].sb_col+j]((block[block_index].nz[k*block[block_index].sb_col+j])*block[s_index].nz[i*block[block_index].sb_col+k]);
                 }
             }
         }
