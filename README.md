@@ -225,7 +225,7 @@ printf("How many blocks are there?");
         //printf("\n\n");
     }
  ```   
-
+#### Block Decomposition
 ```sh 
 int total_row = (n*n/nb);
 int s_index = 0; 
